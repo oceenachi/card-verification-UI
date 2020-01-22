@@ -7,6 +7,9 @@ import axios from "axios";
 function Verification(){
   const [value, setValues] = useState("");
   const [state, setState] = useState({});
+  const [error, setError] = useState("");
+
+  // console.log(error)
 
   const handleChange = e => {
     setValues(e.target.value);
@@ -20,10 +23,12 @@ function Verification(){
       );
       setState(response);
     } catch (err) {
-      console.log({ err });
+    
+      setError(err)
+
     }
   };
-  console.log("spd", state.data);
+ 
     return(
         <>
         <div className="container">

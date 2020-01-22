@@ -1,0 +1,48 @@
+
+.formParent {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 40px;
+}
+
+.info {
+    text-align: left;
+}
+.statContainer {
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+}
+
+.statInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+input [name=number] {
+    width: 1px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  .heading{
+      padding-bottom: 20px;
+  }
+  .btn{
+      height: 25px;
+      color: rgb(6, 6, 58);
+      background: white;
+  }
+  .inp {
+      width: 40px;
+  }

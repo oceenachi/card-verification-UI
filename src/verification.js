@@ -16,7 +16,7 @@ function Verification(){
     e.preventDefault();
     try {
       response = await axios.get(
-        "http://localhost:9090/card-scheme/verify/" + value
+        `https://card-verification-server.herokuapp.com//card-scheme/verify/` + value
       );
       setState(response);
     } catch (err) {

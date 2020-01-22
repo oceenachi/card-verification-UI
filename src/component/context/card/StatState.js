@@ -15,7 +15,7 @@ function GetStatState(props) {
   const getStatistics = async (start, limit) => {
     try {
       const response = await axios.get(
-        `http://localhost:9090/card-scheme/stats?start=${start}&limit=${limit}`
+        `https://card-verification-server.herokuapp.com/card-scheme/stats?start=${start}&limit=${limit}`
       );
       
         dispatch({

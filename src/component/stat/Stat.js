@@ -14,7 +14,10 @@ function Stat() {
     limit: ""
   });
 
-  const [err, setErr] =useState(false)
+  let errMsg = false;
+  // console.log(statError)
+
+  // const [err, setErr] =useState(false)
 
 
   const { start, limit } = value;
@@ -28,13 +31,22 @@ function Stat() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(isNaN(parseInt(limit)) || isNaN(parseInt(start))|| parseInt(start) > parseInt(limit)){
+    // if(limit === "" || start === "" ){
+    //     console.log("coming soon")
+    //     getStatistics(start, limit)
+  
+    // } else {
+    //   getStatistics(parseInt(start), parseInt(limit));
+    // }
+    // setValue({
+    //   ...value,
+    //   [e.target.name]: e.target.value
+    // });
 
-     console.log("error",statError)
-     setErr(true)
-     return
-    }
-    getStatistics(parseInt(start), parseInt(limit));
+  
+   if(start === false || limit === false) {
+      errMsg = "something went wrong"
+   }
   };
   let keys = null;
   let values = null;
@@ -47,6 +59,7 @@ function Stat() {
   return (
     <>
       <div className="container ">
+       
         <h1 className="title"> Number of Hits</h1>
         
           <ul className="heading">
@@ -61,7 +74,7 @@ function Stat() {
               </NavLink>
             </li>
           </ul>
-          {err && <span>Error</span>}
+        {/* {errMsg !== null ? errMsg : ""} */}
           <div className="table-container">
           <div className="statContainer">
             <form className="formParent" onSubmit={handleSubmit}>

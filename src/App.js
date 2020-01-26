@@ -8,7 +8,7 @@ import StatState from '../src/component/context/card/StatState';
 function App() {
   return (
     <>
-      <h1>Vela-Verify</h1>
+     
       <Router>
       <StatState>
         <Switch>

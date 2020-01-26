@@ -11,9 +11,10 @@ function Input(props) {
           name="cardNumber"
           aria-label="form-input"
           maxLength="16"
+          min="100000"
           value={props.value}
           onChange = {props.onChange}
-        />
+          />
       </div>
     </>
   );

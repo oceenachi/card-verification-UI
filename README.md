@@ -3,6 +3,4 @@ the frontend of the card verification app using Reactjs
 
 
 
-
-URL:
-https://dazzling-wozniak-1fb219.netlify.com/
+[FrontEnd URL](https://dazzling-wozniak-1fb219.netlify.com/)

@@ -119,7 +119,7 @@ h1.title {
 }
 
 .words {
-  font-size: medium;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 
@@ -140,6 +140,7 @@ small{
   font-size: 10px;
   letter-spacing: .5px;
 }
+
 
 @media screen and (min-width: 868px) {
   h1.title{

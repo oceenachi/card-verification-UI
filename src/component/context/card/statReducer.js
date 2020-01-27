@@ -8,7 +8,8 @@ export default (state, action) => {
         case GET_STATISTICS:
             return {
                 ...state,
-                statData: action.payload
+                statData: action.payload,
+                loading: false
             }
         case TRIGGER:
             return {

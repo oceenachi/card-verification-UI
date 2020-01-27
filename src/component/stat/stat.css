@@ -1,4 +1,9 @@
-
+.bigStat {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,.78);
+}
 .formParent {
     display: flex;
     justify-content: space-around;
@@ -55,4 +60,8 @@ table {
       box-shadow: 4px 4px 3px rgb(80, 78, 78);
       border-radius: 10px 10px 10px 10px;
       font-weight: bold;
+}
+.div-err{
+    font-size: 1rem;
+    color: red;
 }

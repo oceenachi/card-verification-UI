@@ -19,13 +19,12 @@ function GetStatState(props) {
       const response = await axios.get(
         `https://card-verification-server.herokuapp.com/card-scheme/stats?start=${start}&limit=${limit}`
       );
-      console.log(response.data);
       dispatch({
         type: GET_STATISTICS,
         payload: response.data
       });
     } catch (error) {
-      console.log(error.response);
+      
       dispatch({
         type: SET_ERROR,
         payload: error.response.data

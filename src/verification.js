@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import Input from "./component/Input/Input";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import {MoonLoader} from "react-spinners/MoonLoader";
 
 
 
@@ -10,27 +9,37 @@ function Verification() {
   const [value, setValues] = useState("");
   const [state, setState] = useState({});
   const [error, setError] = useState("");
+  const [blank, setBlank] = useState("");
 
-  // if(error)
-  // console.log(error.response.data.message)
+ 
 
   const handleChange = e => {
     setValues(e.target.value);
   };
+
   let response = {};
+  
+
   const handleSubmit = async e => {
     e.preventDefault();
+    if(value === "") {
+     setBlank("input field must not be empty");
+     return;
+    }
+  
     try {
       response = await axios.get(
-        `https://card-verification-server.herokuapp.com/card-scheme/verify/` +
-          value
+        // `https://card-verification-server.herokuapp.com/card-scheme/verify/` +
+        //   value
+          `http://localhost:9090/card-scheme/verify/` + value
       );
       setState(response);
     } catch (err) {
       setError(err);
+      // console.log({err})
     }
   };
-
+console.log(blank);
   return (
     <>
     <div className="big-container">
@@ -71,12 +80,12 @@ function Verification() {
 
           {error ? (
             <span className="span-error" >{error.response.data.message}</span>
-          ) : (
+          ) : blank ?  <span className="span-error" >{ blank }</span> :(
             <div>
               <small>Enter the first 6 digits of your card</small>
               <br />
               <br />
-              <button className="verify-btn">Verify</button>
+              <input className="verify-btn" type="submit" value="Verify" />
             </div>
           )}
           <br />

@@ -33,12 +33,14 @@ function Stat() {
   const handleSubmit = e => {
     e.preventDefault();
     if(limit === "" || start === "" || parseInt(start) > parseInt(limit)){
-        setErr("Start cannot be less than 1 and limit must be greater than or equal to start")
+        setErr("Start cannot be less than 1 and limit must be greater than or equal to start");
+        setTimeout(() => {
+         return setErr("")
+        }, 5000)
        
     } else {
       getStatistics(parseInt(start), parseInt(limit));
-     
-
+      setErr("")
     }
     setValue({
       ...value,

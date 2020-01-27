@@ -10,17 +10,16 @@ function Stat() {
   const {
     getStatistics,
     statData,
+    clearPayload,
     loading,
-    setLoading,
-    statError
   } = statContext;
 
   const [value, setValue] = useState({
     start: "",
     limit: ""
   });
-  const [err, setErr] =useState("")
-  
+  const [err, setErr] = useState("");
+
   const { start, limit } = value;
 
   const handleChange = e => {
@@ -32,15 +31,17 @@ function Stat() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(limit === "" || start === "" || parseInt(start) > parseInt(limit)){
-        setErr("Start cannot be less than 1 and limit must be greater than or equal to start");
-        setTimeout(() => {
-         return setErr("")
-        }, 5000)
-       
+    if (limit === "" || start === "" || parseInt(start) < 1) {
+      clearPayload();
+      setErr(
+        "Start cannot be less than 1 and limit must be greater than or equal to start"
+      );
+      setTimeout(() => {
+        return setErr("");
+      }, 5000);
     } else {
       getStatistics(parseInt(start), parseInt(limit));
-      setErr("")
+      setErr("");
     }
     setValue({
       ...value,

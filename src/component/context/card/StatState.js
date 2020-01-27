@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { StatContext } from "./statContext";
 import StatReducer from "./statReducer";
 import axios from "axios";
-import { GET_STATISTICS, SET_ERROR, TRIGGER } from "../../../types";
+import { GET_STATISTICS, SET_ERROR, TRIGGER, CLEAR } from "../../../types";
 
 function GetStatState(props) {
   const initialState = {
@@ -16,6 +16,11 @@ function GetStatState(props) {
   const getStatistics = async (start, limit) => {
     setLoading();
     try {
+      // dispatch({
+      //   type: CLEAR,
+      //   payload: null
+      // });
+      clearPayload();
       const response = await axios.get(
         `https://card-verification-server.herokuapp.com/card-scheme/stats?start=${start}&limit=${limit}`
       );
@@ -23,6 +28,7 @@ function GetStatState(props) {
         type: GET_STATISTICS,
         payload: response.data
       });
+
     } catch (error) {
       
       dispatch({
@@ -33,6 +39,7 @@ function GetStatState(props) {
   };
 
   const setLoading = () => dispatch({ type: TRIGGER });
+  const clearPayload = () => dispatch({type: CLEAR});
 
   return (
     <StatContext.Provider
@@ -41,6 +48,7 @@ function GetStatState(props) {
         loading: state.loading,
         statError: state.error,
         getStatistics,
+        clearPayload,
         setLoading
       }}
     >

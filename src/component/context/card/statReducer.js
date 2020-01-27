@@ -1,5 +1,5 @@
 import {GET_STATISTICS} from '../../../types';
-import {TRIGGER, SET_ERROR} from '../../../types';
+import {TRIGGER, SET_ERROR, CLEAR} from '../../../types';
 
 
 export default (state, action) => {
@@ -20,6 +20,11 @@ export default (state, action) => {
             return{
                 ...state,
                 error: action.payload
+            }
+        case CLEAR:
+            return{
+                ...state,
+                statData: action.payload
             }
 
         default: 
